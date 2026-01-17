@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device_width, initial-scale=1.0">
+    	<meta name="description" content="This is the website description">
+        <meta name="author" content="Christian">
+        <title>OpenGL Graphics Framework</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body class="shadow light-border">
+        <div>
+            <header>
+                <div class="titlebar">
+    <img class="logo" src="/img/cl-logo.ico" alt="cl-logo">
+    <h1 class="nametitle">
+    Christian Licona<br>
+    Tools and Gameplay Engineer
+    </h1>
+</div>
+<nav>
+    
+    
+    <a href="/" class="shadow">Home</a>
+    
+    
+    <a href="/projects/" class="shadow">● Projects</a>
+    
+    
+    <a href="/resume/" class="shadow">Resume</a>
+    
+    
+    <a href="/blogs/" class="shadow">Blogs</a>
+    
+    
+    <a href="/misc/" class="shadow">Misc</a>
+    
+    
+    <a href="/about/" class="shadow">About</a>
+    
+</nav>
+            </header>
+            <hr class="hrsolid">
+            <main>
+            	
+    <h1 id="opengl-graphics-framework">OpenGL Graphics Framework</h1>
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_00.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_00.jpg" alt="An image from a scene in my graphics framework. There is a chrome panther statue in the middle on a purple ground plane. There are multiple colored small spheres orbiting the statue. There are different colored lights shining down on the statue and the ground plane however you can only really notice the lights on the plane. In the background is a skybox of a lightly cloudy sky, some mountains on the horizon, and a lake of water." width="100%" />    
+    </a>
+</div>
+<p>As part of the Advanced Computer Graphics class at the <strong>DigiPen Institute of Technology</strong>, we were tasked with creating a graphics framework utilizing the OpenGL API.</p>
+<p>My framework was built with C++, Glad, and GLFW. GLM, STB, and Tiny OBJ Loader were also included for quality of life additions.</p>
+<p>Additionally, ImGui was included to provide a user interface with which to change certain parameters of the graphics framework in real-time.</p>
+<hr>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h3 id="phong-shading">Phong Shading</h3>
+<p>One of the first big tasks in getting this framework up and running was implementing the Phong shading model. OBJ files are loaded into memory and drawn to the screen with shaders written in GLSL.
+Features include:</p>
+<ul>
+<li>support for 16 lights</li>
+<li>Phong-Blinn shading</li>
+<li>real-time parameter changes to the model&rsquo;s ambient, diffuse, and specular terms</li>
+<li>real-time parameter changes to light properties</li>
+</ul>
+
+</div>
+<div class="content-container">
+    
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_01.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_01.jpg" alt="An image from a scene in my graphics framework. In the center is bunny 3d model on a shiny grey plane with a dark blue background. There are multiple colored spheres orbiting the bunny, each casting a light on the bunny. There is a spotlight coming from behind-left of the camera shining on the bunny and ground." width="100%" />    
+    </a>
+</div>
+<div class="content-container">
+    <p>The <a href="https://graphics.stanford.edu/data/3Dscanrep/">Stanford Bunny</a> surrounded by orbiting light spheres. The orbs light the scene as a point light, a spot light, or a directional light. The bunny is rendered using the Phong shading model.</p>
+
+</div>
+
+</div>
+
+</div>
+<hr>
+<h3 id="textures">Textures</h3>
+<p>Textures are loaded in with the stb-image library. UVs can be generated for the model on the CPU or on the GPU. The texture coordinates can be mapped with cylindrical, spherical, and planar mapping.</p>
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_02.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_02.jpg" alt="An image showing 3 spheres side by side. Each sphere has a texture of a wall with black lines separating panels of the wall. Each sphere is using a differnet UV mapping type. From left to right: Cylindrical, Spherical, Planar." width="100%" />    
+    </a>
+</div>
+<hr>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h3 id="debugging-and-changing-properties-in-real-time">Debugging and changing properties in real-time.</h3>
+<p>The ImGui interface allows for changing and viewing various parameters in real-time. Different models can be loaded in dynamically, material properties can be modified, and certain rendering features can be turned on and off.</p>
+<p>This was cruicial in the development of the framework to ensure that work-in-progress features were rendering properly.</p>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_03.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_03.jpg" alt="An image of a blue mug on the right side of the screen and a debug window on the left, against an orange background. The mug has many small white debug lines protruding from it, like a cactus. Each debug line representing the normal direction of that vertex. The debug window on the left contains some statistic info about the scene FPS, as well as some settings that can be toggled such as the debug lines showing the normals." width="100%" />    
+    </a>
+</div>
+
+</div>
+<hr>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h3 id="reflections-and-refractions">Reflections and Refractions</h3>
+<p>A skybox is rendered with depth testing turned off in order to appear in the background.</p>
+<p>Cube mapping is implemented by rendering the scene 6 times to an FBO from the perspective of the object.</p>
+<p>Reflection and Refraction sample from the generated cube map after appropriate reflection and refraction calculations for each fragment.</p>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_04.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_04.jpg" alt="An image divided into 4 quadrants showing the same 3d model of a statue that looks somewhat similar to the statue of liberty. The statue model is against a background skybox showing a lightly cloudy sky, mountains on the horizon, and a body of water on the lower half. Each quadrant has the statue being rendered slightly differently. The top-left quadrant shows the statue being rendered without any reflections or refractions. The top-right quadrant shows the statue being rendered with reflections. The bottom-left quadrant shows the statue being rendered with Refraction only. The bottom-right quadrant shows the statue being rendered with both reflections and refractions." width="100%" />    
+    </a>
+</div>
+
+</div>
+<hr>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h3 id="deferred-rendering">Deferred Rendering</h3>
+<p>Previously much of the project had been rendered using forward rendering. Now the scene could be rendered with a combination of deferred rendering and forward rendering.</p>
+<p>Objects such as these high poly power plant models are marked for deferred rendering. Various elements of the model are rendered to render targets part of a g-buffer. These targets are then combined for a final lighting pass.</p>
+<p>More light-weight debug objects such as the light orbs and vertex normals are rendered after the deferred rendering pass using forward rendering.</p>
+
+</div>
+<div class="content-container">
+    
+<div class="boximage-container light-border shadow">
+    <a href="/img/opengl_gfx_framework_05.jpg" target="_blank">
+       <img src="/img/opengl_gfx_framework_05.jpg" alt="An image showing a highly detailed factory model. On the bottom of the screen is 4 different views of this view of the model, each showing different visual information. From left to right: The positions information of each vertex encoded into colors, the normals information of the model encoded into colors, the depth information of the model encoded into pixels colored from black to white with the whitest values being farther away, and the ambient information of the model encoded into black and white values (there is no ambient information so its one solid black color)." width="100%" />    
+    </a>
+</div>
+<div class="content-container">
+    <p>Rendering of the <a href="https://gamma.cs.unc.edu/POWERPLANT/">Power Plant</a> model which consists of 12,748,510 triangles. 4 different render targets as part of deferred rendering are visualized at the bottom of the screen.</p>
+
+</div>
+
+</div>
+
+</div>
+<hr>
+<a href="/projects" class="button shadow">
+    More Projects<span style="margin-left: 0.6em">➡</span>
+</a>
+
+
+            </main>
+            <hr class="hrsolid">
+            <footer>
+                <div style="font-variant: all-small-caps">
+    © Copyright 2026 Christian Licona
+</div>
+            </footer>
+        </div>
+    </body>
+</html>

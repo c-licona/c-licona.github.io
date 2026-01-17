@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Christian Licona</title>
+    <link>https://c-licona.github.io/tags/</link>
+    <description>Recent content in Tags on Christian Licona</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>christianjovannilicona@gmail.com (Christian Licona)</managingEditor>
+    <webMaster>christianjovannilicona@gmail.com (Christian Licona)</webMaster>
+    <copyright>© Copyright 2026 Christian Licona</copyright>
+    <lastBuildDate>Sat, 17 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://c-licona.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://c-licona.github.io/tags/blog/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C-Programming-Language</title>
+      <link>https://c-licona.github.io/tags/c-programming-language/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/tags/c-programming-language/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DigiPen</title>
+      <link>https://c-licona.github.io/tags/digipen/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/tags/digipen/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

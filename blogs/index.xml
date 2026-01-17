@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Christian Licona</title>
+    <link>https://c-licona.github.io/blogs/</link>
+    <description>Recent content in Blogs on Christian Licona</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>christianjovannilicona@gmail.com (Christian Licona)</managingEditor>
+    <webMaster>christianjovannilicona@gmail.com (Christian Licona)</webMaster>
+    <copyright>© Copyright 2026 Christian Licona</copyright>
+    <lastBuildDate>Sat, 17 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://c-licona.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My new website</title>
+      <link>https://c-licona.github.io/blogs/my-new-website/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/blogs/my-new-website/</guid>
+      <description>&lt;h1 id=&#34;my-new-website&#34;&gt;My new website&lt;/h1&gt;&#xA;&lt;p&gt;Welcome to the first blog post of my new website redesign!&lt;/p&gt;&#xA;&lt;p&gt;If I were to use one word to describe my life for the year of 2025, it would be: &lt;strong&gt;Change&lt;/strong&gt;. Okay to be honest, &lt;strong&gt;Alignment&lt;/strong&gt; is probably a better word, but change works better for the rest of this paragraph. This new website redesign is part of the many things that are changing in my life, and I wanted to use this first blog post to share &lt;em&gt;why&lt;/em&gt; I&amp;rsquo;ve remade my website.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

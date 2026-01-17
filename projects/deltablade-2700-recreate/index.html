@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device_width, initial-scale=1.0">
+    	<meta name="description" content="This is the website description">
+        <meta name="author" content="Christian">
+        <title>DeltaBlade 2700 Re:Create</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body class="shadow light-border">
+        <div>
+            <header>
+                <div class="titlebar">
+    <img class="logo" src="/img/cl-logo.ico" alt="cl-logo">
+    <h1 class="nametitle">
+    Christian Licona<br>
+    Tools and Gameplay Engineer
+    </h1>
+</div>
+<nav>
+    
+    
+    <a href="/" class="shadow">Home</a>
+    
+    
+    <a href="/projects/" class="shadow">● Projects</a>
+    
+    
+    <a href="/resume/" class="shadow">Resume</a>
+    
+    
+    <a href="/blogs/" class="shadow">Blogs</a>
+    
+    
+    <a href="/misc/" class="shadow">Misc</a>
+    
+    
+    <a href="/about/" class="shadow">About</a>
+    
+</nav>
+            </header>
+            <hr class="hrsolid">
+            <main>
+            	
+    <h1 id="deltablade-2700-recreate">DeltaBlade 2700 Re:Create</h1>
+<blockquote>
+<p><em>&ldquo;DeltaBlade 2700 Re:Create is an action-packed 2D competitive local multiplayer cyberpunk-themed platformer with fast-paced robot ninja sword combat and jetpacks, focusing on gameplay variety and user-created content.&rdquo;</em></p></blockquote>
+<p><div class="boximage-container light-border shadow">
+    <a href="/img/db-card.jpg" target="_blank">
+       <img src="/img/db-card.jpg" alt="An image of the DeltaBlade 2700 Re:Create logo with a background of a mech factory." width="100%" />    
+    </a>
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-producers.png" target="_blank">
+       <img src="/img/db-producers.png" alt="An image of 2 logos. On the left is the logo for our team &#39;Handshake Firm&#39;. On the right is the DigiPen Institute of Technology logo." width="100%" />    
+    </a>
+</div></p>
+<iframe src="https://store.steampowered.com/widget/1881430/" frameborder="0" width="646px" height="190px"></iframe>
+<!-- raw HTML omitted -->
+<table>
+  <thead>
+      <tr>
+          <th>DeltaBlade 2700</th>
+          <th>DeltaBlade 2700 Re:Create</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>The original <a href="https://www.digipen.edu/showcase/student-games/deltablade-2700">DeltaBlade 2700</a> was created in C Processing by team <em>Handshake Firm</em> during their first year at the <a href="https://www.digipen.edu/">DigiPen Institute of Technology</a>. The team consisted of 5 programmers in the beginning and brought on additional members during the Summer to polish the game and <a href="https://store.steampowered.com/app/1143450/DeltaBlade_2700/">release on Steam, free to play</a>. It was even featured at Pax West 2019!</td>
+          <td>For our fourth year at DigiPen, we decided to re-form <em>Handshake Firm</em> with some new members, bringing the team size to 11. We all had a love of DeltaBlade 2700 and we wanted to expand our programming skills and have a chance to experiment. So we decided to recreate DeltaBlade in an entirely custom engine of our own making.</td>
+      </tr>
+  </tbody>
+</table>
+<p>DeltaBlade 2700 Re:Create is powered by a custom engine written in C++ and rendered with Vulkan. The engine is built with CMake and the project was maintained with GitLab. The game runs on Windows, Mac, and Linux, and the Nintendo Switch.</p>
+<p>As part of the original plan for the project, we wanted to release the game on the Nintendo Switch. In order to accomplish this we had members of the team including myself take the <em>Intro to Portable Game System</em> class at DigiPen. This class taught us how to work with Nintendo Switch development kits and we were given the green light to attempt to port our game to the Nintendo Switch hardware for the class&rsquo;s final project. Thanks to our forward thinking in how we built the project during the first half of the semester, we succeeded in porting the game and even added in additional features that took advantage of the hardware!</p>
+<p>Unfortunately, due to circumstances beyond our control, while we were encouraged to continue development on the hardware, we would not be able to publish the game for the hardware. Given this news, we decided to discontinue development on the Switch so that team members could focus on other opportunities for the next semester. Some members including myself decided to continue working on the PC build of the game so that we could enhance the game with new features and gameplay.</p>
+<hr>
+<h3 id="overview">Overview</h3>
+<p>A quick rundown of some of the work I accomplished on DeltaBlade 2700 Re:Create.</p>
+<p><strong>Performance Profiler</strong></p>
+<p>I integrated 2 performance profilers into our engine under a common API. <a href="https://github.com/bombomby/optick">Optick</a> was integrated for profiling on Windows machines, while the profiler from the Nintendo SDK was integrated for the Nintendo Switch version of the game.</p>
+<p><strong>UI System</strong></p>
+<p>I created the UI system for our engine which would be used to create all of the game&rsquo;s menu screens as well as the new Level Editor. The UI system is integrated with the rest of the gameplay systems as ECS components. Continue reading to the &ldquo;UI System&rdquo; section for more details.</p>
+<p><strong>Level Editor</strong></p>
+<p>One of the new additions to DeltaBlade 2700 Re:Create is the in-game level editor accessible from the main menu. I created this editor to be controller friendly and to allow players to create levels quickly and test them with the new game modes that have been added.</p>
+<hr>
+<h3 id="ui-system">UI System</h3>
+<h4 id="designing-for-parity">Designing for parity</h4>
+<p>For our project we didn&rsquo;t need anything particularly comprehensive for our custom engine&rsquo;s UI system. The primary goal was to create a system that would allow us to re-create the UI scenes from the original game, but I had a secondary goal in mind as well. I started this project with a dream of adding a new level editor to the game and I had a particular user interface in mind for this editor. I decided that if I wanted to eventually create this level editor how I imagined, the best course of action would be to design a UI system that accomplished both of these goals at the same time.</p>
+<p>I started the process of designing this UI system by going back to the original game and drawing out how each UI scene operated. I wanted to build an understanding of all the different input and behaviors each scene needed.</p>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="main-menu">Main Menu</h4>
+<p>The main menu has a simple vertical list of &ldquo;Selectables&rdquo; (buttons) that can be hovered/unhovered/selected.
+The input we are concerned about:</p>
+<ul>
+<li>Navigate Up/Down</li>
+<li>Select</li>
+</ul>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-uidesign-menu.jpg" target="_blank">
+       <img src="/img/db-uidesign-menu.jpg" alt="A simplified hand drawing of the main menu and its buttons and how they relate to each other." width="100%" />    
+    </a>
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="options">Options</h4>
+<p>The options menu has a vertical list of &ldquo;Selectables.&rdquo; The user can navigate up/down this list. When we are hovering over some of these selectables, we can execute some sort of functionality with right/left input. E.g. We can press left/right on the d-pad to move the &lsquo;Master&rsquo; volume slider.
+The input we are concerned about:</p>
+<ul>
+<li>Navigate Up/Down</li>
+<li>Execute on Left/Right</li>
+<li>Select*</li>
+</ul>
+<p>* Select in this scene is optional and may perform the same functionality that the &lsquo;Right&rsquo; input would do.</p>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-uidesign-options.jpg" target="_blank">
+       <img src="/img/db-uidesign-options.jpg" alt="A simplified hand drawing of the options screen and its buttons and controls." width="100%" />    
+    </a>
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="how-to-play">How to Play</h4>
+<p>The how to play scene is our first example scene where we have a horizontal list of &ldquo;Selectables&rdquo; that we need to navigate through with left/right. In this particular scene &lsquo;Select&rsquo; doesn&rsquo;t do anything, we are simply flipping through pages of how-to-play gifs.
+The input we are concerned about:</p>
+<ul>
+<li>Navigate Left/Right</li>
+</ul>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-uidesign-howtoplay.jpg" target="_blank">
+       <img src="/img/db-uidesign-howtoplay.jpg" alt="A simplified hand drawing of the &#39;How to Play&#39; screen and the selectables that can be switched to in order to change the currently shown gif." width="100%" />    
+    </a>
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="exit-confirmation">Exit Confirmation</h4>
+<p>The exit confirmation screen has a simple horizontal list of 2 &ldquo;Selectables.&rdquo; Again, we need to be able to navigate left/right between these buttons, and be able to select them.
+The input we are concerned about:</p>
+<ul>
+<li>Navigate Left/Right</li>
+<li>Select</li>
+</ul>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-uidesign-exit.jpg" target="_blank">
+       <img src="/img/db-uidesign-exit.jpg" alt="A simplified hand drawing of the &#39;Exit Game&#39; screen with the yes and no buttons." width="100%" />    
+    </a>
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="pause">Pause</h4>
+<p>The pause screen is our first example of a relatively complicated UI setup. There is a vertical list of 4 &ldquo;Selectables&rdquo; visible when the screen first comes up (<code>S0 - S3</code>). We can navigate up/down between these buttons and select them. The remaining selectables (<code>S4, S5</code>) are hidden until the &lsquo;Exit to Menu&rsquo; button is pressed. At this point we can ONLY navigate up/down between these 2 buttons. If we select &lsquo;Keep Playing&rsquo; however, we go back to navigating the first 4 buttons, meanwhile <code>S4 &amp; S5</code> are made hidden again.
+The input we are concerned about:</p>
+<ul>
+<li>Navigate Up/Down</li>
+<li>Select</li>
+</ul>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-uidesign-pause.jpg" target="_blank">
+       <img src="/img/db-uidesign-pause.jpg" alt="A simplified hand drawing of the pause screen and the buttons that can be pressed here, as well as the 2 hidden buttons that appear when selecting the &#39;Exit to Menu&#39; button." width="100%" />    
+    </a>
+</div>
+
+</div>
+<h4 id="putting-it-together">Putting it together</h4>
+<p>Once the UI screens we needed to recreate had been analyzed, I could sum up the features the UI system needs to support so far:</p>
+<ul>
+<li>Navigate Up/Down</li>
+<li>Navigate Left/Right</li>
+<li>Execute on Left/Right</li>
+<li>Select</li>
+</ul>
+<p>In addition to input, the UI system needed to support certain behaviors:</p>
+<ul>
+<li>The options screen made evident that in certain cirumstances we wanted to be able to choose between navigating Left/Right and executing on Left/Right. Executing meaning that we call some sort of function for example</li>
+<li>The pause screen shows that selectables need to be able to be &ldquo;grouped&rdquo; together in some way
+<ul>
+<li>When we enter/exit these groups, we want to have the option of executing some sort of functionality. E.g. hiding/showing certain buttons.</li>
+</ul>
+</li>
+</ul>
+<p>This was a good start; now it was time to take a look at what I needed from my future level editor.</p>
+<hr>
+<h3 id="designing-for-the-future">Designing for the future</h3>
+<p><div class="boximage-container light-border shadow">
+    <a href="/img/db-mmakereditor.jpg" target="_blank">
+       <img src="/img/db-mmakereditor.jpg" alt="An image split into 2 halves. On the left is a screenshot of Mario Maker&#39;s level editor. The current level looks somewhat like a basic DeltaBlade level. On the right is a simplified hand drawing of what I wanted the level editor for DeltaBlade to eventually look somewhat similar to. It describes how selectables connect to each other all across the screen. The layout somewhat resembles the layout in Mario Maker." width="100%" />    
+    </a>
+</div>
+(Left) A screenshot of a sample DeltaBlade level I made in Mario Maker when I was toying with the idea of what I wanted my level editor to do and look like. (Right) A rough drawing i made showing the general layout of what my future level editor might look like.</p>
+<p>The editor interface I wanted to design for DeltaBlade 2700 Re:Create was inspired by the interface in Super Mario Maker 2. I didn&rsquo;t know the specifics of how it would look yet, but I knew what behaviors I wanted to support.</p>
+<p>At this point the details of how our UI system would work were starting to form in my head. Now is a good time to start explaining some of the labeling that has been showing up in my drawings. I mentioned in the Overview section that the UI system was comprised of 2 ECS components: <code>UISelectable</code> and <code>UIContext</code>. Objects in my drawings marked with (<code>S#</code>) indicate that those objects are <code>UISelectable</code>s or &ldquo;Selectables.&rdquo; Regions marked with (<code>C#</code>) refer to <code>UIContext</code>s or &ldquo;Contexts.&rdquo; As a high level overview of what selectables and contexts are:</p>
+<ul>
+<li>Selectables: These are objects such as buttons. They can be navigated to, unhovered, hovered, and selected. Relationships can be defined between selectables so that you can navigate from one selectable to another.</li>
+<li>Contexts: These are objects that in a way group together selectables. Certain behavior can be executed when we jump around between selectables in different contexts.</li>
+</ul>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <p>In Super Mario Maker you usually move around a cursor in the center of the screen to manipulate blocks on the grid. The UI elements are grouped together on the left, top, and right sides of the screen. The user can seamlessly navigate from one grouping of buttons to another.</p>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-mmaker.jpg" target="_blank">
+       <img src="/img/db-mmaker.jpg" alt="A screenshot of mario maker. This is the same screenshot as the previous one." width="100%" />    
+    </a>
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <p>I wanted my level editor to share the same sort of layout. On the left side I would have some group of buttons under <code>C1</code> for changing how we interact with the level. The top of the screen would have some group of buttons under <code>C2</code> that represented different tiles that could  be picked and placed in the level. The right side of the screen would have some other group of buttons under <code>C3</code> used to interact with the level. I also played with the idea of having some sort of central menu that would pop-up under <code>C4</code>.</p>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/db-futureeditor.jpg" target="_blank">
+       <img src="/img/db-futureeditor.jpg" alt="A simplified hand drawing of what I wanted the DeltaBlade level editor to eventually somewhat look like. This is the same picture as the one above." width="100%" />    
+    </a>
+</div>
+
+</div>
+<p>With all of these evaluations in mind, I was confident that there weren&rsquo;t any more inputs or behaviors that our UI system needed in order to support our game UI and level editor goals. I had my plan in hand and got to work building the game UI in the first semester, and the level editor in the second semeseter.</p>
+<hr>
+<h3 id="level-editor">Level Editor</h3>
+<p><div class="boximage-container light-border shadow">
+    <a href="/img/db-leveleditor.jpg" target="_blank">
+       <img src="/img/db-leveleditor.jpg" alt="An image split in half by a diagonal white line. On the left is a screenshot of the level editor in DeltaBlade 2700: Re-Create. On the right is a screenshot of that same level but being played in-game." width="100%" />    
+    </a>
+</div>
+<video class="boximage-container light-border shadow" src="/vid/db-leveleditor.mp4"  loop autoplay></video></p>
+<hr>
+<h3 id="years-later">Years Later&hellip;</h3>
+<p>I&rsquo;m very proud of our team for the work we put into this game. It never gets old when I hear that the game is playable at the DigiPen booth at Pax West another year.</p>
+<p><div class="boximage-container light-border shadow">
+    <a href="/img/db-paxwest2024.jpg" target="_blank">
+       <img src="/img/db-paxwest2024.jpg" alt="An image of the DigiPen booth at Pax West 2024. A group of 3 people are getting ready to play DeltaBlade 2700 Re:Create on a big screen TV with xbox controllers." width="100%" />    
+    </a>
+</div>
+Pax West 2024</p>
+<hr>
+<a href="/projects" class="button shadow">
+    More Projects<span style="margin-left: 0.6em">➡</span>
+</a>
+
+
+            </main>
+            <hr class="hrsolid">
+            <footer>
+                <div style="font-variant: all-small-caps">
+    © Copyright 2026 Christian Licona
+</div>
+            </footer>
+        </div>
+    </body>
+</html>

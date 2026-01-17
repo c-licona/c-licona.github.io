@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device_width, initial-scale=1.0">
+    	<meta name="description" content="This is the website description">
+        <meta name="author" content="Christian">
+        <title>Infinte Supernova</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body class="shadow light-border">
+        <div>
+            <header>
+                <div class="titlebar">
+    <img class="logo" src="/img/cl-logo.ico" alt="cl-logo">
+    <h1 class="nametitle">
+    Christian Licona<br>
+    Tools and Gameplay Engineer
+    </h1>
+</div>
+<nav>
+    
+    
+    <a href="/" class="shadow">Home</a>
+    
+    
+    <a href="/projects/" class="shadow">● Projects</a>
+    
+    
+    <a href="/resume/" class="shadow">Resume</a>
+    
+    
+    <a href="/blogs/" class="shadow">Blogs</a>
+    
+    
+    <a href="/misc/" class="shadow">Misc</a>
+    
+    
+    <a href="/about/" class="shadow">About</a>
+    
+</nav>
+            </header>
+            <hr class="hrsolid">
+            <main>
+            	
+    <h1 id="infinite-supernova">Infinite Supernova</h1>
+<blockquote>
+<p><em>“Infinite Supernova is a rhythmic endless runner where the player takes the role of a shooting star outrunning a devastating supernova by dashing and blasting through obstacles.”</em></p></blockquote>
+<p><div class="youtube-container light-border shadow">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Y6k6puhRrcI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" title="YouTube video"></iframe>
+    </div>
+
+<a href="https://www.youtube.com/watch?v=Y6k6puhRrcI">Infinite Supernova Menu - 10 min</a> — This video is a 10 minute loop of the menu music for our game which was created by our music composer, Eric Pansulla.</p>
+<p>Infinite Supernova was developed as part of our Sophomore year GAM200/250 game project at the <strong>DigiPen Institute of Technology</strong>. I served as a <strong>Tools &amp; Graphics Engineer</strong> for the lifetime of the project.</p>
+<p>The team overcame many challenges throughout the development of this project. I would have never been able to accomplish what I did without the contributions and support from every single person involved in the making of this engine and game, from beginning to end.</p>
+<p>While this page will focus on some of the work I contributed, I want to emphasize that there is so much more that the rest of the team accomplished as well.</p>
+<hr>
+<h3 id="the-fetch-engine-and-the-grool-editor">The Fetch Engine and The Grool Editor</h3>
+<p>Our team had many team bonding sessions and one of which involved watching &lsquo;Mean Girls&rsquo; together, hence the name &ldquo;Grool&rdquo; Editor.</p>
+<p>Our custom engine was written in C++, and the game was scripted with Lua. We utilized various libraries such as: FMOD, Spine, ImGui, GLAD, GLM, sol2, and cereal. The engine is rendered with OpenGL with shaders written in GLSL.</p>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="debugging">Debugging</h4>
+<p>One of the first big tasks I had was to create a way for us to be able to visualize and debug the objects in our engine. We integrated ImGui into the project and worked to expose various data from the engine so that we could view and modify it at runtime.</p>
+<p>The Object Viewer was a critical debug window and allowed us to modify the components of our game objects like the Transform and Sprite component. An object in the scene isn&rsquo;t showing up on screen? Maybe its position is actually a million units away for some reason, or maybe there is a problem rendering the sprite with the current image it has.</p>
+
+</div>
+<div class="content-container">
+    
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_Debugger.jpg" target="_blank">
+       <img src="/img/IS_Debugger.jpg" alt="An image of our debug window for Infinite Supernova. At the top is the title text &#39;INFINITE SUPERNOVA&#39;. In the center is a star with green debug lines showing the sprite that is rendering the star. The background is a starfield. On the left are sub-windows for editor preferences, statistics, and general settings. On the right is a window showing information about the currently selected object in the scene." width="100%" />    
+    </a>
+</div>
+A screenshot of the main menu scene with various debugging windows on screen.
+
+</div>
+
+</div>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    <h4 id="the-editor">The Editor</h4>
+<p>Given the limited amount of time we had for this project, we wanted to make the editor simple to use and capable of quick iteration. We modeled it after how Unity and Godot handles game creation.</p>
+
+</div>
+<div class="content-container">
+    
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_GroolEditor.jpg" target="_blank">
+       <img src="/img/IS_GroolEditor.jpg" alt="An image of our editor window for Infinite Supernova. At the top is the name of the game and in the center is a star against a background of stars. On the left is a Hierarchy window and an Assets window. On the right is the Properties window and Scenes window." width="100%" />    
+    </a>
+</div>
+A screenshot of our main menu inside the editor and the windows that make up the editor: Hierarchy, Assets, Properties, and Scenes window.
+
+</div>
+
+</div>
+<h4 id="windows">Windows</h4>
+<p>The <strong>Hierarchy Window</strong> lets us create new game objects and parent them to others. A game object can be selected and edited in the <strong>Properties</strong> window.</p>
+<p>The <strong>Properties Window</strong> lets us set the data that defines a game object. We can add components such as:</p>
+<ul>
+<li><strong>Physics</strong> - Gives the game object the capability to move around in the world using physics.</li>
+<li><strong>Collider</strong> - Helps resolve collisions when the Physics component is attached.</li>
+<li><strong>Camera</strong> - Gives the object the capability to render the scene from it&rsquo;s location. Normally this is given to one object, although it is possible to have multiple cameras enabling split screen behavior.</li>
+<li><strong>Sprite</strong> - Gives the editor the option to decide what texture image the object is rendered with.</li>
+<li><strong>Material</strong> - Extends the functionality of the Sprite component. The sprite can be rendered with different shaders, each capable of having their own unique parameters.</li>
+<li><strong>Text</strong> - Text is rendered at the position of the game object. The text can be set in the editor and modified at runtime.</li>
+<li><strong>Particle Emitter</strong> - Attaches a particle emitter to the object. The editor is given many options to fully customize the particle emitter&rsquo;s behavior.</li>
+<li><strong>Behaviors</strong> - Lua scripts can be attached to this component. The scripts can be edited and reloaded at runtime allowing quick iteration and bug fixes.</li>
+</ul>
+<p>The <strong>Assets Window</strong> gives us access to the images and Lua scripts we have authored. Images can be dragged and dropped onto Sprite components and Lua scripts can be added to Behavior components.</p>
+<p>The <strong>Scenes Window</strong> allows us to switch to and edit the different scenes that make up our game.</p>
+<h4 id="serialization">Serialization</h4>
+<p>We used the <a href="https://uscilab.github.io/cereal/">cereal serialization library</a> in order to serialize and deserialize our scenes as json files. This gave us the opportunity to easily change certain aspects of our scenes by simply changing the json files, and making source control merging slightly more friendly.</p>
+<hr>
+<h3 id="example-scene">Example Scene</h3>
+<p>This simple but powerful setup allows us to quickly generate content for our game. For example, our credits scene is a simple scene setup with the editor and a Lua script.</p>
+<p>The contents of the credits scene are a sequence of sprites laid out in the scene. A Lua script is attached to the camera which drives it to pan down the credits scene.
+<div class="content-container-2" >
+    
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_Credits.jpg" target="_blank">
+       <img src="/img/IS_Credits.jpg" alt="An image of our editor window. In the center is a list of names from our credits. On the left is the Hierarchy window and Assets window. On the right is the Properties window." width="100%" />    
+    </a>
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_CreditsLua.jpg" target="_blank">
+       <img src="/img/IS_CreditsLua.jpg" alt="An image showing Lua code from our project of the Update function that defines the credits sequence. The code describes functionality for speeding up the credits with input, when to fade in/out credits, and the code for actually scrolling the credits." width="100%" />    
+    </a>
+</div>
+
+</div></p>
+<hr>
+<div class="content-container-2" >
+    
+<div class="content-container">
+    
+<div class="content-container">
+    <h3 id="c-and-lua">C++ and Lua</h3>
+<p>While the engine was written in C++, the gameplay was scripted with Lua. We wanted to make sure that anyone on the team could create content for the game without having to know the inner workings of our C++ code. An API was created to bridge the gap between our engine and Lua code.</p>
+<p>To make the process of writing Lua scripts for our game even easier, I created this technical document outlining the scripting structure of our game and important functions to be aware of when interfacing with our engine.</p>
+
+</div>
+<a href="/docs/IS_GameSceneDocumentation.pdf" class="button shadow">
+    View Full Document<span style="margin-left: 0.6em">➡</span>
+</a>
+
+</div>
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_DocFan.png" target="_blank">
+       <img src="/img/IS_DocFan.png" alt="An image showing a few pages of the documentation I wrote. Read the full document for more info." width="100%" />    
+    </a>
+</div>
+
+</div>
+<hr>
+<h3 id="starfield-shader">Starfield Shader</h3>
+<p>Another fun thing I worked on for this project was the starfield background for the game which is actually a shader written in GLSL. I found <a href="https://youtu.be/rvDo9LvfoVE?si=mQ4hEy2JP8u6deJT">this excellent tutorial by The Art of Code</a> and thought it would be perfect for our game.</p>
+<p>In order for the shader to work for our game, I had to make some tweaks. I found a cool program called <a href="https://shadered.org">SHADEred</a> that allowed me to view and tweak values in real-time as I developed the shader.</p>
+<p>Once I was happy with the tweaks and values that I had exposed, I added the shader to our engine which now had the capability of changing the behavior of the shader within the editor and during gameplay.</p>
+<p>The starfield shader can be modified from the Material component. All of these values are exposed to Lua scripts so things like the intensity of the stars can pulse with the music.
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_Starfield0.jpg" target="_blank">
+       <img src="/img/IS_Starfield0.jpg" alt="An image of the starfield in editor as it looks normally. There is a Properties window to the right showing some of the properties that can be tweaked for the starfield such as Density, Depth, Speed, etc." width="100%" />    
+    </a>
+</div></p>
+<p>The <code>Density</code> and <code>Depth</code> control how many stars are visible and how far away they are from each other. Color randomness can be tweaked to change the vibe of the scene.
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_Starfield1.jpg" target="_blank">
+       <img src="/img/IS_Starfield1.jpg" alt="An image of the starfield in editor, but this time the stars are much more colorful. The Properties window is visible to the left and the color picker for the &#39;ColorRandom&#39; property is selected showing a magenta color that is currently picked." width="100%" />    
+    </a>
+</div></p>
+<p>Because of the way the shader functions, having such a saturated starfield requires more computation and thus more processing power to render to the screen. Luckily we don&rsquo;t need this many stars, although it is pretty to look at.
+<div class="boximage-container light-border shadow">
+    <a href="/img/IS_Starfield2.jpg" target="_blank">
+       <img src="/img/IS_Starfield2.jpg" alt="An image of the starfield in editor. The starfield is much more dense with stars. In the center of the image is the Properties window showing that the &#39;Density&#39; value has been cranked to 10 which is why there are so many more stars than usual." width="100%" />    
+    </a>
+</div></p>
+<hr>
+<a href="/projects" class="button shadow">
+    More Projects<span style="margin-left: 0.6em">➡</span>
+</a>
+
+
+            </main>
+            <hr class="hrsolid">
+            <footer>
+                <div style="font-variant: all-small-caps">
+    © Copyright 2026 Christian Licona
+</div>
+            </footer>
+        </div>
+    </body>
+</html>
