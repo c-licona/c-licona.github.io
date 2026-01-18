@@ -246,6 +246,7 @@ nav a:hover {
     padding: 5px 12px;
     margin: 15px 0 5px 0;
 
+    border-color: var(--border);
     border-style: solid;
     border-width: thin;
 
@@ -279,7 +280,11 @@ nav a:hover {
 
 .logo {
     margin-right: auto;
-    height: 175%;
+    height: 200%;
+}
+
+.logo img {
+  height: 100%;
 }
 
 .nametitle {
@@ -477,10 +482,8 @@ table {
   margin: 1.5rem 0;
   border-width: var(--border-width-table);
   border-left-width: 0.4rem;
-  border-left-style: solid;
-  border-top-style: dashed;
   border-color: var(--table-border-color);
-  border-left-color: var(--table-border-color);
+  border-style: dashed solid none solid
 }
 
 figure > table {
@@ -488,28 +491,19 @@ figure > table {
   margin: 0;
 }
 
-td {
-  border-width: var(--border-width-table);
-  border-top-style: solid;
-  border-color: var(--table-border-color);
-}
-
 td,
 th {
   text-align: start;
   padding: 0.5rem;
+  border-bottom-style: solid;
+  border-bottom-width: var(--border-width-table);
+  border-color: var(--table-border-color);
 }
 
 th {
   background-color: var(--table-alt);
   font-weight: bold;
-  border-bottom-style: solid;
-  border-bottom-color: var(--table-border-color);
   border-bottom-width: 1.5px;
-}
-
-tr:first-child {
-  border-top-style: dashed;
 }
 
 tr:nth-child(even) {
