@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MetaQuest2 on Christian Licona</title>
+    <link>https://c-licona.github.io/tags/metaquest2/</link>
+    <description>Recent content in MetaQuest2 on Christian Licona</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>christianjovannilicona@gmail.com (Christian Licona)</managingEditor>
+    <webMaster>christianjovannilicona@gmail.com (Christian Licona)</webMaster>
+    <copyright>© Copyright 2026 Christian Licona</copyright>
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://c-licona.github.io/tags/metaquest2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Iron Man VR</title>
+      <link>https://c-licona.github.io/projects/iron-man-vr/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/projects/iron-man-vr/</guid>
+      <description>&lt;h1 id=&#34;iron-man-vr&#34;&gt;Iron Man VR&lt;/h1&gt;&#xA;&lt;p&gt;&lt;div class=&#34;youtube-container light-border shadow&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/6XIcDAdK5bM?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&lt;a href=&#34;https://www.youtube.com/watch?v=6XIcDAdK5bM&#34;&gt;Marvel&amp;rsquo;s Iron Man VR | Meta Quest 2&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In 2022 I graduated from DigiPen and got hired right out the gate by Endeavor One. We worked with &lt;a href=&#34;https://www.camouflaj.com/home/&#34;&gt;Camouflaj&lt;/a&gt; as they were porting Iron Man VR to the Meta Quest 2.&lt;/p&gt;&#xA;&lt;p&gt;This was a perfect opportunity for a recent grad like me because it allowed me to sort of bootstrap into the industry.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
