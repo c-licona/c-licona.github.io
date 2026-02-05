@@ -676,3 +676,11 @@ details[open] summary > svg:last-child {
 .iframe-container {
     width: 100%;
 }
+
+.footer {
+    font-variant: all-small-caps;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
