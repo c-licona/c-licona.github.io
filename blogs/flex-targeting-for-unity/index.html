@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+    	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device_width, initial-scale=1.0">
+    	<meta name="description" content="This is the website description">
+        <meta name="author" content="Christian">
+
+        <meta property="og:url" content="https://c-licona.github.io/blogs/flex-targeting-for-unity/">
+  <meta property="og:site_name" content="Christian Licona">
+  <meta property="og:title" content="Flex Targeting for Unity">
+  <meta property="og:description" content="Welcome to my personal website! Check out my portfolio and read my occasional thoughts on my blog.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2026-04-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-08T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="Csharp">
+  <meta property="og:image" content="/img/cl-website-social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+        <title>Flex Targeting for Unity</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body class="shadow light-border">
+        <div>
+            <header>
+                <div class="titlebar">
+    <a href="/" class="logo">
+        <img src="/img/cl-logo.ico" alt="cl-logo">
+    </a>
+    <h1 class="nametitle">
+    Christian Licona<br>
+    Tools and Gameplay Engineer
+    </h1>
+</div>
+<nav>
+    
+    
+    <a href="/" class="shadow">Home</a>
+    
+    
+    <a href="/projects/" class="shadow">Projects</a>
+    
+    
+    <a href="/resume/" class="shadow">Resume</a>
+    
+    
+    <a href="/blogs/" class="shadow">● Blogs</a>
+    
+    
+    <a href="/misc/" class="shadow">Misc</a>
+    
+    
+    <a href="/about/" class="shadow">About</a>
+    
+</nav>
+            </header>
+            <hr class="hrsolid">
+            <main>
+            	
+    <h1 id="flex-targeting-for-unity">Flex Targeting for Unity</h1>
+<p>Today I &ldquo;officially&rdquo; released v1.0.0 of my Unity library called <strong>Flex Targeting</strong>! It is available under the MIT license <a href="https://github.com/c-licona/FlexTargeting-Unity">on GitHub</a> for anyone to use in their projects.</p>
+<p>Flex Targeting is a light-weight, flexible, allocation-free set of methods for finding the best target from a list of input targets. Being allocation-free was an important goal for me when developing this library because I wanted something that could be efficiently run every frame without worrying about generating a ton of memory allocation garbage.</p>
+<p>It&rsquo;s useful for making interaction systems where you need to look at a particular point to interact with it, for making aim assist systems where you need to hit the most appropriate target among a group of targets, for making a gaze system where you don&rsquo;t have to be dead accurate on your target, and more.</p>
+<h2 id="a-brief-history">A brief history</h2>
+<p>While this iteration of the library was developed from scratch over the last few months, it&rsquo;s roots stretch all the way back to 2023. At that time I began work on a gameplay prototype at my former place of employment: Endeavor One. For this prototype, I needed functionality that could intelligently pick the best target among a group of nearby targets. It&rsquo;s a simple problem that any engineer can solve in plenty of different ways. I was still fairly new to working in C# and Unity at this time, so my solution was pretty scrappy and had some issues that bugged me. It relied on overlap casts to get a list of nearby targets, which necessitated that all targets have some sort of collider on them on a specific layer in order to be detected. I also noticed in the performance profiler that it was allocating a small bit of memory every time I would use it, which would usually be every frame. Still, it got the job done for my prototype, and I continued to make use of it for many more prototypes over the years.</p>
+<p>One day I came across a post online where someone made an argument that completely shifted my mindset. I forget what they said exactly, but as a result of reading this post I was convinced to move away from using overlap casts and instead iterate through a persistent list of available targets.</p>
+<p>Fast forward to early 2025, I had recently been laid off and began working on personal projects. I no longer had access to my old targeting system and I was in need of the same sort of functionality. So I began developing the next evolution of this idea, using my memory for some aspects and architecting a different approach for other aspects. While the old iteration was completely contained within one MonoBehaviour script, this new iteration took an approach of using static method calls so that you didn&rsquo;t need to have a script/component in scene that held all the data required for the targeting functionality. But it still wasn&rsquo;t as flexible as I would have liked it to be, and it was still hard coded to only find the best targets within a given direction.</p>
+<p>Over the course of 2025, my knowledge base of C# and Unity began to grow significantly as I found great learning resources that taught me about more advanced concepts, I worked on more personal projects, and I peeked under the hood of various Unity store assets and github repositories.</p>
+<p>At the end of 2025, I decided to revisit this iteration of my targeting system. I had small ideas at first on how I wanted to improve it, but very quickly those ideas started to snowball into something new and better, the next evolution of this idea. I would go out on morning walks and brainstorm more and more improvements. There wasn&rsquo;t one single day where the whole picture came into focus, I just kept thinking about it every day and using all of the knowledge I had learned up to this point to keep coming up with better improvements. And so finally, it eventually formed into what is now v1.0.0 of the Flex Targeting library.</p>
+<h2 id="coming-up-next">Coming up next</h2>
+<p>When you zoom out and look at Flex Targeting from a birds eye view, it&rsquo;s really not that grand of an idea. It&rsquo;s a relatively simple set of functions for sorting through an array of objects for the best one. But for me it&rsquo;s so incredibly useful. I&rsquo;m honestly surprised by how many prototypes I&rsquo;ve worked on in the past few years that make use of this simple idea. And from a design perspective, Flex Targeting is great for making gameplay features that are <strong>generous</strong>. i.e. Systems for interactions or aim assist or gazing, where the player doesn&rsquo;t need to be dead accurate. Where you can give the player some leeway and predict what they intended to do even if they miss.</p>
+<p>I feel satisfied with where Flex Targeting v1.0.0 is at. It&rsquo;s functional, it&rsquo;s easy to use, and it&rsquo;s flexible for many different situations. I plan on creating a project page on my website where I go into more detail on the design decisions I made for this library. Why was the original version more object oriented, and this new version more data oriented? What steps did I take to avoid memory allocation? etc. etc.</p>
+<p>It might be a little bit of time before I get around to that as I shift my focus on other efforts. For now, here is a little blurry tease of a future project I&rsquo;m currently brainstorming:
+<div class="boximage-container light-border shadow">
+    <a href="/img/project-trinity-00.png" target="_blank">
+       <img src="/img/project-trinity-00.png" alt="A low res image showing many different colored nodes from an Obsidian canvas. No text is legible." width="100%" />
+    </a>
+</div></p>
+
+
+            </main>
+            <hr class="hrsolid">
+            <footer>
+                <div class="footer">
+    <span>
+        © Copyright 2026 Christian Licona
+    </span>
+    <span>
+        <a target="_blank" href="https://www.linkedin.com/in/christianlicona/">LinkedIn</a> |
+        <a target="_blank" href="https://github.com/c-licona">GitHub</a> |
+        <a target="_blank" href="https://bsky.app/profile/clicona.bsky.social">Bluesky</a>
+    </span>
+</div>
+            </footer>
+        </div>
+    </body>
+</html>

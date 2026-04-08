@@ -9,8 +9,15 @@
     <managingEditor>christianjovannilicona@gmail.com (Christian Licona)</managingEditor>
     <webMaster>christianjovannilicona@gmail.com (Christian Licona)</webMaster>
     <copyright>© Copyright 2026 Christian Licona</copyright>
-    <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://c-licona.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flex Targeting for Unity</title>
+      <link>https://c-licona.github.io/blogs/flex-targeting-for-unity/</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><author>christianjovannilicona@gmail.com (Christian Licona)</author>
+      <guid>https://c-licona.github.io/blogs/flex-targeting-for-unity/</guid>
+      <description>&lt;h1 id=&#34;flex-targeting-for-unity&#34;&gt;Flex Targeting for Unity&lt;/h1&gt;&#xA;&lt;p&gt;Today I &amp;ldquo;officially&amp;rdquo; released v1.0.0 of my Unity library called &lt;strong&gt;Flex Targeting&lt;/strong&gt;! It is available under the MIT license &lt;a href=&#34;https://github.com/c-licona/FlexTargeting-Unity&#34;&gt;on GitHub&lt;/a&gt; for anyone to use in their projects.&lt;/p&gt;&#xA;&lt;p&gt;Flex Targeting is a light-weight, flexible, allocation-free set of methods for finding the best target from a list of input targets. Being allocation-free was an important goal for me when developing this library because I wanted something that could be efficiently run every frame without worrying about generating a ton of memory allocation garbage.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Tricking my brain into being productive</title>
       <link>https://c-licona.github.io/blogs/tricking-my-brain-into-being-productive/</link>
